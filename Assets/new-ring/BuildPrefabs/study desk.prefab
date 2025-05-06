@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 758388963112565507}
   - component: {fileID: 4891899356126693501}
   - component: {fileID: 9146606031777810372}
+  - component: {fileID: 1172531528855047151}
   m_Layer: 0
   m_Name: "1.31_\u041A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440 DEPO Neos
     DF9 540\u0445165\u0445435 [125875.001"
@@ -85,6 +86,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1172531528855047151
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2204168332716062428}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 43.95717, y: 54.63252, z: 43.534756}
+  m_Center: {x: 0.09837766, y: -2.7402859, z: -22.17442}
 --- !u!1 &6795316416051984011
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,6 +152,7 @@ GameObject:
   - component: {fileID: 1960583211524959803}
   - component: {fileID: 8886259735304577838}
   - component: {fileID: 7532992810311713232}
+  - component: {fileID: 4163685597437578217}
   m_Layer: 0
   m_Name: "1.11_\u0421\u0442\u043E\u043B \u0443\u0447\u0435\u043D\u0438\u0447\u0435\u0441\u043A\u0438\u0439
     \u0434\u043B\u044F \u041F\u041A 1000\u0445_62e.001"
@@ -205,6 +228,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4163685597437578217
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7143098398382267477}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 70.00005, y: 77, z: 100.00005}
+  m_Center: {x: -0.00024414062, y: 38.1669, z: 0.0000019073485}
 --- !u!1 &9194037627652685869
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +260,7 @@ GameObject:
   - component: {fileID: 1987808050135255474}
   - component: {fileID: 354476325809398735}
   - component: {fileID: 3674327121696042552}
+  - component: {fileID: 8530264035057340146}
   m_Layer: 0
   m_Name: "1.13_\u0421\u0442\u0443\u043B \u0443\u0447\u0435\u043D\u0438\u0447\u0435\u0441\u043A\u0438\u0439
     \u043D\u0438\u0437\u043A\u0438\u0439 380\u0445_ef7.001"
@@ -291,3 +336,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8530264035057340146
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194037627652685869}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 42.00002, y: 85.91542, z: 38.550865}
+  m_Center: {x: -0.0000019073498, y: 43.062943, z: 0.000248909}
