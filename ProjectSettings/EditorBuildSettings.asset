@@ -8,4 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/tirrane.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 44dae49f02d98d2438bfb953f8193c4d,
+      type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: dda60f1401f1f2c4f81fab7351600731,
+      type: 2}
