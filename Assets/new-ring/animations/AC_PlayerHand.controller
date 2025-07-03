@@ -36,7 +36,7 @@ BlendTree:
     m_Motion: {fileID: -3072723500940322608, guid: 35cfff12be0e1984699cd7cbdea81050,
       type: 3}
     m_Threshold: 0.33333334
-    m_Position: {x: 1, y: 0}
+    m_Position: {x: 1, y: -0.01}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: shift
@@ -80,13 +80,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: kurok
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
