@@ -91,7 +91,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: daafc10a7aa933e44a9dc7ffe84ceafc,
         type: 3}
       propertyPath: m_Name
-      value: "\u0434\u0438\u0432\u0430\u043D"
+      value: sofa
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: daafc10a7aa933e44a9dc7ffe84ceafc,
         type: 3}
@@ -150,7 +150,48 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2330827314455729674}
+    - targetCorrespondingSourceObject: {fileID: 3479033952255647077, guid: daafc10a7aa933e44a9dc7ffe84ceafc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1000266856771730535}
   m_SourcePrefab: {fileID: 100100000, guid: daafc10a7aa933e44a9dc7ffe84ceafc, type: 3}
+--- !u!23 &2603146667429359455 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5584065758827919185, guid: daafc10a7aa933e44a9dc7ffe84ceafc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7592693088271882254}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6419503933034251627 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3479033952255647077, guid: daafc10a7aa933e44a9dc7ffe84ceafc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7592693088271882254}
+  m_PrefabAsset: {fileID: 0}
+--- !u!205 &1000266856771730535
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6419503933034251627}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -1.4883041, y: 0.59472656, z: -34.190193}
+  m_Size: 207.11948
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.2192833
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 2603146667429359455}
+  - screenRelativeHeight: 0.101
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.1
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1
 --- !u!1 &7322786968294614367 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: daafc10a7aa933e44a9dc7ffe84ceafc,
