@@ -43,7 +43,7 @@ public class GuideController : MonoBehaviour
     {
         _path.Clear();
         if (_pathManager == null) return;
-        foreach (var segment in _pathManager.FinalPath)
+        foreach (var segment in _pathManager.finalPath)
             _path.AddRange(segment);
     }
 

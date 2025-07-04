@@ -25,7 +25,7 @@ public class PathEditorWindow : EditorWindow
             if (manager != null && database != null)
             {
                 var flatPath = new List<Waypoint>();
-                foreach (var segment in manager.FinalPath)
+                foreach (var segment in manager.finalPath)
                     flatPath.AddRange(segment);
 
                 database.routes.Add(new RouteDatabase.NamedRoute
