@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-[ExecuteInEditMode]
 public class GuideController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
@@ -16,35 +15,24 @@ public class GuideController : MonoBehaviour
     private PathfindingManager _pathManager;
 
     public bool isPaused { get; private set; }
+    public Route route;
 
-    void OnEnable()
+    void Start()
     {
+        if(route == null) return;
         _pathManager = FindObjectOfType<PathfindingManager>();
-        SetPathFromManager();
-    }
-
-    void OnValidate()
-    {
-        SetPathFromManager();
-        if (_path.Count > 0)
-            transform.position = _path[0].transform.position;
-        _currentIndex = 0;
+        
+        foreach (var waypointName in route.waypointsName)
+            if (_pathManager.WaypointDictionary.TryGetValue(waypointName, out Waypoint current))
+                _path.Add(current);
     }
 
     void Update()
     {
-        if (Application.isPlaying && _path.Count > 0 && _moveRoutine == null)
+        if (_path.Count > 0 && _moveRoutine == null)
         {
             _moveRoutine = StartCoroutine(FollowPath());
         }
-    }
-
-    private void SetPathFromManager()
-    {
-        _path.Clear();
-        if (_pathManager == null) return;
-        foreach (var segment in _pathManager.finalPath)
-            _path.AddRange(segment);
     }
 
     private IEnumerator FollowPath()

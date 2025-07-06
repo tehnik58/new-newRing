@@ -2,16 +2,16 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public static class Pathfinder
+public class Pathfinder
 {
     public static List<Waypoint> FindPath(List<Waypoint> allWaypoints, Waypoint start, Waypoint end)
     {
         // Защита от null/уничтоженных
-        if (start == null || start.Equals(null) || end == null || end.Equals(null))
+        if (!start || start.Equals(null) || !end || end.Equals(null))
             return null;
 
         // Убираем уничтоженные объекты из списка
-        allWaypoints = allWaypoints.Where(wp => wp != null && !wp.Equals(null)).ToList();
+        allWaypoints = allWaypoints.Where(wp => wp && !wp.Equals(null)).ToList();
 
         Dictionary<Waypoint, float> distances = new();
         Dictionary<Waypoint, Waypoint> previous = new();
@@ -32,7 +32,7 @@ public static class Pathfinder
         {
             Waypoint current = unvisited.OrderBy(wp => distances[wp]).FirstOrDefault();
 
-            if (current == null || current.Equals(null))
+            if (!current || current.Equals(null))
             {
                 unvisited.Remove(current);
                 continue;
@@ -71,5 +71,4 @@ public static class Pathfinder
 
         return null;
     }
-
 }
