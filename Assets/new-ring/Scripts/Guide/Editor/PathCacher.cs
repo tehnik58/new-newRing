@@ -3,7 +3,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-public class PathCacher
+public static class PathCacher
 {
     public static void CacheCurrentPath(List<List<Waypoint>> finalPath, string name)
     {

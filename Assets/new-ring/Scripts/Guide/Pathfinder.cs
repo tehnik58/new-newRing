@@ -6,11 +6,9 @@ public class Pathfinder
 {
     public static List<Waypoint> FindPath(List<Waypoint> allWaypoints, Waypoint start, Waypoint end)
     {
-        // Защита от null/уничтоженных
         if (!start || start.Equals(null) || !end || end.Equals(null))
             return null;
 
-        // Убираем уничтоженные объекты из списка
         allWaypoints = allWaypoints.Where(wp => wp && !wp.Equals(null)).ToList();
 
         Dictionary<Waypoint, float> distances = new();

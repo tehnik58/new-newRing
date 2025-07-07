@@ -12,7 +12,8 @@ public class PathfindingManagerEditor : UnityEditor.Editor
 
         if (GUILayout.Button("Cache Current Path"))
         {
-            manager.CacheCurrentPath();
+            if(manager.PathName != null) 
+                PathCacher.CacheCurrentPath(manager.finalPath, manager.PathName);
         }
     }
 }

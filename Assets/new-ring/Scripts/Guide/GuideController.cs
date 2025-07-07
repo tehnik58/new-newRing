@@ -9,31 +9,34 @@ public class GuideController : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private bool useVoice;
 
-    private List<Waypoint> _path = new();
+    private readonly List<Waypoint> _path = new();
     private Coroutine _moveRoutine;
     private int _currentIndex;
-    private PathfindingManager _pathManager;
+    private Route _route;
 
-    public bool isPaused { get; private set; }
-    public Route route;
-
-    void Start()
+    public void Init(Route route)
     {
-        if(route == null) return;
-        _pathManager = FindObjectOfType<PathfindingManager>();
-        
-        foreach (var waypointName in route.waypointsName)
-            if (_pathManager.WaypointDictionary.TryGetValue(waypointName, out Waypoint current))
-                _path.Add(current);
+        _route = route;
     }
 
-    void Update()
+    public void StartRoute()
     {
-        if (_path.Count > 0 && _moveRoutine == null)
+        if(_route == null) return;
+        Debug.Log("Starting route");
+
+        foreach (var waypointName in _route.waypointsName)
         {
-            _moveRoutine = StartCoroutine(FollowPath());
+            if (WaypointsStorage.Waypoints.TryGetValue(waypointName, out var current))
+                _path.Add(current);
+            else
+                Debug.Log("Не найдена точка из маршрута");
         }
+        Debug.Log(string.Join(", ", _path));
+        
+        if (_path.Count > 0 && _moveRoutine == null)
+            _moveRoutine = StartCoroutine(FollowPath());
     }
+
 
     private IEnumerator FollowPath()
     {
@@ -48,7 +51,6 @@ public class GuideController : MonoBehaviour
             }
 
             transform.position = target;
-            isPaused = true;
 
             if (useVoice && _path[_currentIndex].guideVoice && audioSource)
             {
@@ -61,7 +63,6 @@ public class GuideController : MonoBehaviour
                 yield return new WaitForSeconds(pauseDuration);
             }
 
-            isPaused = false;
             _currentIndex++;
         }
 

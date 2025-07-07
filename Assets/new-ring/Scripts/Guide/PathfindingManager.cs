@@ -5,49 +5,32 @@ using System.Linq;
 [ExecuteInEditMode]
 public class PathfindingManager : MonoBehaviour
 {
+    [SerializeField] private List<Waypoint> keyWaypoints = new();
+    [SerializeField] private string pathName;
     private List<Waypoint> _allWaypoints;
-    public Dictionary<string, Waypoint> WaypointDictionary = new();
-    
-    public PathDrawer PathDrawer;
-    public List<Waypoint> keyWaypoints = new();
-    public List<List<Waypoint>> FinalPath = new();
-    public string PathName;
-    
-    void OnEnable() => Refresh();
 
-    void OnValidate()
-    {
-        Refresh();
-        if(PathDrawer)
-            PathDrawer.AllWaypoints = _allWaypoints;
-    }
-    
+    public string PathName => pathName;
+    public List<List<Waypoint>> finalPath { get; } = new();
+
+    void OnEnable() => Refresh();
+    void OnValidate() => Refresh();
+
     void Update()
     {
-        if (Application.isPlaying)
-            return;
+        if (Application.isPlaying) return;
         Refresh();
     }
 
     private void Refresh()
     {
-        if(!PathDrawer) return;
         keyWaypoints.RemoveAll(wp => !wp || wp.Equals(null));
-        UpdateWaypoints();
+        _allWaypoints = WaypointsStorage.Waypoints.Values.ToList();
         CalculatePath();
     }
-    
-
-    private void UpdateWaypoints()
-    {
-        _allWaypoints = FindObjectsOfType<Waypoint>().Where(wp => wp).ToList();
-        WaypointDictionary = _allWaypoints.ToDictionary(wp => wp.name, wp => wp);
-    }
-
 
     private void CalculatePath()
     {
-        FinalPath.Clear();
+        finalPath.Clear();
         if (keyWaypoints.Count < 2) return;
 
         for (int i = 0; i < keyWaypoints.Count - 1; i++)
@@ -58,32 +41,39 @@ public class PathfindingManager : MonoBehaviour
             if (!start || start.Equals(null) || !end || end.Equals(null)) continue;
 
             var path = Pathfinder.FindPath(_allWaypoints, start, end);
-            if (path != null) 
-                FinalPath.Add(path);
+            if (path != null)
+                finalPath.Add(path);
         }
-    }
-
-    public void CacheCurrentPath()
-    {
-        if(PathName != null) 
-            PathCacher.CacheCurrentPath(FinalPath, PathName);
     }
 
     private void OnDrawGizmos()
     {
+        var radius = 0.5f;
+        
+        // Highlight first key waypoint (red sphere) even if alone
+        if (keyWaypoints.Count > 0 && keyWaypoints[0] != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(keyWaypoints[0].transform.position, radius);
+        }
+
         Gizmos.color = Color.red;
-        foreach (var segment in FinalPath)
+        foreach (var segment in finalPath)
         {
             for (int i = 0; i < segment.Count - 1; i++)
             {
                 if (segment[i] == null || segment[i + 1] == null) continue;
-        
+
                 Vector3 a = segment[i].transform.position;
                 Vector3 b = segment[i + 1].transform.position;
-                // Vector3 offset = (b - a).normalized * 0.05f;
-                // Gizmos.DrawLine(a + offset, b + offset);
-                // Gizmos.DrawLine(a - offset, b - offset);
                 Gizmos.DrawLine(a, b);
+            }
+
+            // Highlight last waypoint in segment (blue sphere)
+            if (segment.Count > 0 && segment[segment.Count - 1] != null)
+            {
+                Gizmos.color = Color.blue;
+                Gizmos.DrawSphere(segment[segment.Count - 1].transform.position, radius);
             }
         }
     }

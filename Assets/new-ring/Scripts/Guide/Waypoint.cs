@@ -10,11 +10,13 @@ public class Waypoint : MonoBehaviour
     void OnEnable()
     {
         UpdateBidirectionalConnections();
+        WaypointsStorage.TryAddWaypoint(this);
     }
 
     void OnValidate()
     {
         UpdateBidirectionalConnections();
+        WaypointsStorage.TryAddWaypoint(this);
     }
 
     void UpdateBidirectionalConnections()
@@ -33,6 +35,7 @@ public class Waypoint : MonoBehaviour
             if (wp == null || wp.Equals(null) || !wp.connectedWaypoints.Contains(this))
                 toRemove.Add(wp);
         }
+        
         foreach (Waypoint wp in toRemove)
         {
             connectedWaypoints.Remove(wp);
