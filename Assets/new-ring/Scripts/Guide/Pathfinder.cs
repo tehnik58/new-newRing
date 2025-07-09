@@ -2,15 +2,15 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Pathfinder
+public static class Pathfinder
 {
     public static List<Waypoint> FindPath(List<Waypoint> allWaypoints, Waypoint start, Waypoint end)
     {
-        if (!start || start.Equals(null) || !end || end.Equals(null))
+        if (!start || !end )
             return null;
 
-        allWaypoints = allWaypoints.Where(wp => wp && !wp.Equals(null)).ToList();
-
+        allWaypoints.RemoveAll(wp => !wp);
+        
         Dictionary<Waypoint, float> distances = new();
         Dictionary<Waypoint, Waypoint> previous = new();
         HashSet<Waypoint> unvisited = new();

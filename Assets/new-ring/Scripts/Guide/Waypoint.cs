@@ -7,6 +7,12 @@ public class Waypoint : MonoBehaviour
     public List<Waypoint> connectedWaypoints = new(); 
     public AudioClip guideVoice;
 
+    void Awake()
+    {
+        UpdateBidirectionalConnections();
+        WaypointsStorage.TryAddWaypoint(this);
+    }
+    
     void OnEnable()
     {
         UpdateBidirectionalConnections();

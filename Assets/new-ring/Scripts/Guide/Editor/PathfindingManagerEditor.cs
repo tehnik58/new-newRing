@@ -8,7 +8,7 @@ public class PathfindingManagerEditor : UnityEditor.Editor
     {
         DrawDefaultInspector();
 
-        PathfindingManager manager = (PathfindingManager)target;
+        var manager = (PathfindingManager)target;
 
         if (GUILayout.Button("Cache Current Path"))
         {

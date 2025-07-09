@@ -18,13 +18,13 @@ public static class PathCacher
         }
 
         // Create SO Route
-        Route route = ScriptableObject.CreateInstance<Route>();
+        var route = ScriptableObject.CreateInstance<Route>();
         route.routeId = $"Route_{name}";
         route.waypointsName = listWaypoints;
         route.name = $"Route_{name}";
 
         // Check if route already exists
-        string path = "Assets/new-ring/Scripts/Guide/Routes/" + route.routeId + ".asset";
+        var path = "Assets/new-ring/Scripts/Guide/Routes/" + route.routeId + ".asset";
         if (File.Exists(path))
         {
             if (!EditorUtility.DisplayDialog("Overwrite Route", $"Route '{route.routeId}' already exists. Do you want to overwrite it?", "Yes", "No"))
@@ -35,7 +35,7 @@ public static class PathCacher
         }
 
         // Ensure directory exists
-        string dirPath = "Assets/new-ring/Scripts/Guide/Routes";
+        var dirPath = "Assets/new-ring/Scripts/Guide/Routes";
         if (!Directory.Exists(dirPath))
             Directory.CreateDirectory(dirPath);
 

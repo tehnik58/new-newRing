@@ -29,10 +29,7 @@ public class WaypointsStorage : MonoBehaviour
     public static void TryAddWaypoint(Waypoint waypoint)
     {
         if(waypoint == null) return;
-        
-        if (!_waypoints.TryAdd(waypoint.name, waypoint))
-            Debug.Log("Точка уже существует " + waypoint.name);
-
+        _waypoints.TryAdd(waypoint.name, waypoint);
         DeleteVoidWaypoints();
     }
 }

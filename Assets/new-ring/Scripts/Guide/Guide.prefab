@@ -228,10 +228,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  pauseDuration: 2
+  pauseDuration: 0.5
+  maxDistanceFromPlayer: 5
   audioSource: {fileID: 1703969535449211724}
   useVoice: 1
-  route: {fileID: 11400000, guid: 5356e3ea040aa3140a4501b12d63b7e1, type: 2}
+  animator: {fileID: 0}
 --- !u!82 &1703969535449211724
 AudioSource:
   m_ObjectHideFlags: 0
